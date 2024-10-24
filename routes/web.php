@@ -1,6 +1,8 @@
 <?php
-
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\HomneController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+
+
+Route::get('/', [HomneController::class, 'home']);
+
+Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
